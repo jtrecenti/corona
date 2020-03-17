@@ -9,4 +9,4 @@ dados <- "http://plataforma.saude.gov.br/novocoronavirus/resources/scripts/datab
   tidyr::unnest(values) %>%
   dplyr::mutate(date = lubridate::dmy(date))
 
-readr::write_csv(dados, "corona-ms.csv")
+if (nrow(dados) > 0) readr::write_csv(dados, "corona-ms.csv")
